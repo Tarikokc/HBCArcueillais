@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - HBC Arcueillais</title>
+
+  <link href="./style.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="header-container">
+      <div class="header-content">
+        <span class="header-text">HBC</span>
+        <img src="./img/hbc_arcueil.png" alt="Logo HBC Arcueil" class="header-logo" />
+        <span class="header-text">ARCUEILLAIS</span>
+      </div>
+    </div>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="index.html" id="nav-accueil">Accueil</a></li>
+      <li><a href="evenements.html" id="nav-evenements">Événements</a></li>
+      <li><a href="equipes.html" id="nav-equipes">Équipes</a></li>
+      <li><a href="direction.html" id="nav-direction">Direction</a></li>
+      <li><a href="licence.html" id="nav-licence">Licence</a></li>
+      <li><a href="contact.html" id="nav-contact" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Contact</h2>
+    <div class="card">
+      <h3>Suivez-nous sur les réseaux sociaux</h3>
+      <div class="social-links">
+        <a href="https://www.instagram.com/hbcarcueillais" target="_blank" class="social-link instagram">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://www.facebook.com/hbcarcueillais" target="_blank" class="social-link facebook">
+          <i class="fab fa-facebook"></i> Facebook
+        </a>
+        <a href="https://www.tiktok.com/@hbcarcueillais" target="_blank" class="social-link tiktok">
+          <i class="fab fa-tiktok"></i> TikTok
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Contact Sponsoring</h3>
+      <p>
+        Pour toute demande concernant le sponsoring et les partenariats :
+      </p>
+      <p>
+        Email :
+        <a href="mailto:sponsoring@hbcarcueillais.fr">hbca.evenementiel@gmail.com</a>
+      </p>
+      <br>
+      <h3>Contact pôle intégrité</h3>
+      <p>
+        Le pôle intégrité est une cellule dédiée à la protection et au bien-être de tous nos licenciés,
+        particulièrement les mineurs. Il garantit un environnement sportif sain et sécurisé, et peut être
+        contacté pour signaler toute situation préoccupante ou comportement inapproprié.
+      </p>
+      <p>
+        Pour toute question relative à l'intégrité et la protection des
+        mineurs :
+      </p>
+      <p>
+        Email :
+        <a href="mailto:hbca.integrite@gmail.com">hbca.integrite@gmail.com</a>
+      </p>
+    </div>
+    <div class="card">
+      <h3>Nous contacter</h3>
+      <form id="contactForm">
+        <div class="form-group">
+          <input type="text" name="nom" id="nom" placeholder="Nom" required />
+        </div>
+        <div class="form-group">
+          <input type="text" name="prenom" id="prenom" placeholder="Prénom" required />
+        </div>
+        <div class="form-group">
+          <input type="text" name="sujet" id="sujet" placeholder="Sujet du message" required />
+        </div>
+        <div class="form-group">
+          <textarea name="message" id="message" placeholder="Votre message" required></textarea>
+        </div>
+        <button type="submit">Envoyer</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2024 HBC Arcueillais. Tous droits réservés. | <a href="mentions-legales.html">Mentions légales</a></p>
+  </footer>
+  
+  <script src="js/main.js"></script>
+</body>
+
+</html>

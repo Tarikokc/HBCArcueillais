@@ -1,0 +1,684 @@
+/* Ajoutez ceci tout en haut de votre CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Variables */
+:root {
+    --primary-color: #0b008f;
+    --secondary-color: #ffffff;
+    --accent-color: #f8f9fa;
+    --text-color: #333;
+    --border-color: #ddd;
+    --card-padding: 1rem;
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+    --gap-size: 1rem;
+}
+
+/* Remplacez votre style body actuel par celui-ci */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;                /* Ajouté */
+    overflow-x: hidden;         /* Ajouté */
+    position: relative;         /* Ajouté */
+    background-image: url('img/LOGO_HBCA.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* Et ajoutez cette règle pour html juste avant body */
+html {
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: -1;
+}
+
+/* Header styles */
+header {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 2rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.header-logo {
+    height: 5rem;
+    width: auto;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 1rem 0;
+    width: 100%;
+    flex-shrink: 0; /* Empêche le footer de rétrécir */
+    margin-top: auto; /* Le pousse en bas */
+}
+
+/* Navigation styles */
+nav {
+    background-color: var(--accent-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0.5rem 1rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+/* Main content styles */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+/* Style de base pour tous les tab-content */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+/* Style général pour les listes (mode desktop) */
+ul, ol {
+    list-style-position: inside;
+    margin: 1rem 0;
+    padding-left: 1rem;
+}
+
+li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+    padding-left: 0.5rem;
+}
+/* Card styles */
+.card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Style pour les listes dans les cards */
+.card ul, 
+.card ol {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 6px;
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+}
+
+.card li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.8rem 0;
+    margin: 0;
+}
+
+.card li:last-child {
+    border-bottom: none;
+}
+
+
+/* Event styles */
+.event-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.event-item {
+    display: flex;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.event-image {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.event-details {
+    padding: 15px;
+    flex: 1;
+}
+
+/* Direction section */
+#direction {
+    max-width: 1200px; /* Augmenté de 1200px par défaut */
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+#direction .photo-grid {
+    display: grid;
+    gap: var(--gap-size);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding: var(--card-padding);
+}
+
+#direction .member-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--card-padding);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background: var(--secondary-color);
+    transition: transform var(--transition-speed);
+}
+
+#direction .member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#direction .photo-placeholder {
+    width: 100%;
+    max-width: 200px;
+    aspect-ratio: 1;
+    margin-bottom: 1rem;
+    border-radius: calc(var(--border-radius) / 2);
+    overflow: hidden;
+}
+
+#direction .photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-speed);
+}
+
+#direction .member-card h4 {
+    margin: 0.5rem 0;
+    color: var(--primary-color);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+#direction .member-card p {
+    margin: 0;
+    color: var(--text-color);
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+}
+
+#equipes {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+
+.widget-container {
+    width: 100%;
+    min-height: 500px;
+    overflow: hidden;
+    margin: 0 0 2rem 0;
+    box-sizing: border-box;
+}
+
+/* Modification du content-after-widget */
+.content-after-widget {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.content-after-widget .card {
+    width: 96%; /* Modifié de 95% à 96% pour plus de cohérence */
+    margin-bottom: 2rem;
+    margin-left: auto;    /* Ajouté pour centrer la carte */
+    margin-right: auto;   /* Ajouté pour centrer la carte */
+}
+
+.team-image.card {
+    padding: 0;
+    overflow: hidden;
+    display: flex;          /* Ajoute display flex */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center;     /* Centre verticalement */
+    margin: 0 auto;
+    
+}
+
+.team-image.card img {
+    width: auto;            /* Change width: 100% en auto */
+    max-width: 80%;        /* Ajoute max-width pour éviter le débordement */
+    height: auto;
+    display: block;
+}
+
+/* Licence section */
+#licence {
+    padding: 2rem;
+}
+
+.important-note {
+    background-color: #ffffcc;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.step-content {
+    margin-top: 15px;
+}
+
+.renewal,
+.new-license {
+    margin-bottom: 20px;
+}
+
+/* Table styles */
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Contact section */
+#contact {
+    padding: 2rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    color: white;
+    border-radius: 50px;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+}
+
+.instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.facebook {
+    background-color: #1877f2;
+}
+
+.tiktok {
+    background-color: #000;
+}
+
+/* Forms */
+form {
+    display: grid;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+button[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+button[type="submit"]:hover {
+    background-color: #003f88;
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+    }
+
+    .header-text {
+        font-size: 2rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .event-item {
+        flex-direction: column;
+    }
+
+    .event-image {
+        width: 100%;
+    }
+
+    #equipes .widget-container {
+        height: 500px;
+        margin-bottom: 2rem;
+    }
+    #equipes .card {
+        margin: 1rem 0;
+        padding: 1rem;
+    }
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    .table-responsive table {
+        display: block;
+        width: 100%;
+    }
+
+    .table-responsive td {
+        display: block;
+    }
+
+    .table-responsive td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background-size: auto 100vh; /* Force l'image à prendre la hauteur de l'écran */
+        background-position: center;
+        background-attachment: scroll; /* Meilleure performance sur mobile */
+    }
+    header, nav, footer, main {
+        width: 100%;
+        left: 0;
+        right: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+        box-sizing: border-box;
+        position: relative;
+    }
+ 
+    main {
+        padding: 1rem;
+        width: 100%;
+    }
+ 
+    body {
+        min-width: 100%;
+        width: 100%;
+    }
+ 
+    .header-content, 
+    .header-container,
+    nav ul,
+    .card {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        box-sizing: border-box;
+        position: relative;
+    }
+ 
+    /* Correction pour les liens sociaux */
+    .social-links {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        margin: 0;
+        box-sizing: border-box;
+    }
+ 
+    .social-link {
+        width: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+        text-align: center;
+    }
+ 
+    .instagram,
+    .facebook,
+    .tiktok {
+        width: 100%;
+        box-sizing: border-box;
+    }
+ 
+    /* Nouveau style pour le tableau responsive */
+    .table-responsive {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+ 
+    .table-responsive table,
+    .table-responsive thead,
+    .table-responsive tbody,
+    .table-responsive tr,
+    .table-responsive th,
+    .table-responsive td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+ 
+    .table-responsive thead {
+        display: none;
+    }
+ 
+    .table-responsive tr {
+        margin-bottom: 1rem;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+ 
+    .table-responsive td {
+        position: relative;
+        padding: 1rem;
+        padding-left: 50%;
+        min-height: 1rem;
+        border: none;
+        border-bottom: 1px solid #eee;
+        font-size: 0.9rem;
+    }
+ 
+    .table-responsive td:last-child {
+        border-bottom: none;
+    }
+ 
+    .table-responsive td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0.8rem;
+        width: 45%;
+        padding-right: 5px;
+        font-weight: bold;
+        color: var(--primary-color);
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        font-size: 0.9rem;
+        line-height: 1.2;
+    }
+ 
+    /* Style spécifique pour les créneaux d'entrainement */
+    .table-responsive td[data-label="Créneaux d'entrainement"] {
+        padding-left: 1rem;
+        padding-top: 3.5rem;
+    }
+ 
+    .table-responsive td[data-label="Créneaux d'entrainement"]::before {
+        top: 1rem;
+        width: 90%;
+    }
+
+    ul, ol {
+        padding-left: 0.5rem;
+        margin: 0.8rem 0;
+    }
+
+    li {
+        margin: 0.4rem 0;
+        padding-left: 0.3rem;
+    }
+
+    .card ul, 
+    .card ol {
+        padding: 0.8rem;
+    }
+
+    .card li {
+        padding: 0.6rem 0;
+    }
+
+ }
+/* Print styles */
+@media print {
+    body {
+        background: none;
+    }
+
+    main {
+        width: 100%;
+        max-width: none;
+    }
+
+    .card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
+
